@@ -1,0 +1,33 @@
+.advantages {
+  padding: 0 var(--pad-x) var(--section-y);
+  display: flex;
+  flex-direction: column;
+  gap: 48px;
+}
+
+.advantages__grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 300px), 1fr));
+  border-top: 1px solid var(--line);
+  border-left: 1px solid var(--line);
+}
+
+/* Card turns dark on hover */
+.advantage {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  gap: 48px;
+  min-height: 260px;
+  padding: 32px;
+  border-right: 1px solid var(--line);
+  border-bottom: 1px solid var(--line);
+  color: var(--ink);
+  transition: background 0.35s, color 0.35s;
+}
+.advantage:hover { background: var(--ink); color: var(--paper); }
+
+.advantage__num { font: 500 12px var(--font-mono); color: var(--red); }
+.advantage__body { display: flex; flex-direction: column; gap: 12px; }
+.advantage__title { font: 600 22px/1.2 var(--font-display); letter-spacing: -0.02em; }
+.advantage__text { font: 500 15px/1.55 var(--font-body); opacity: 0.72; }

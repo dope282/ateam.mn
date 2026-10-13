@@ -1,0 +1,46 @@
+.partners {
+  padding: var(--section-y) 0;
+  display: flex;
+  flex-direction: column;
+  gap: 48px;
+  overflow: hidden;
+}
+.partners__head { padding: 0 var(--pad-x); }
+
+/* Huge outlined brand names ticker */
+.partners__marquee {
+  overflow: hidden;
+  border-top: 1px solid var(--line);
+  border-bottom: 1px solid var(--line);
+  padding: 24px 0;
+}
+.partners__marquee-track {
+  display: flex;
+  width: max-content;
+  font: 800 clamp(56px, 9vw, 140px)/1 var(--font-display);
+  letter-spacing: -0.04em;
+  white-space: nowrap;
+  color: rgba(22, 17, 15, 0.14);
+}
+.partners__marquee-group { display: flex; gap: 0.5em; padding-right: 0.5em; }
+.partners__marquee-name { transition: color 0.3s; }
+.partners__marquee-name:hover { color: var(--red); }
+
+.partners__grid-wrap { padding: 0 var(--pad-x); }
+.partners__grid {
+  display: flex;
+  flex-wrap: wrap;
+  border-top: 1px solid var(--line);
+  border-left: 1px solid var(--line);
+}
+.partner {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  flex: 1 1 200px;
+  padding: 24px;
+  border-right: 1px solid var(--line);
+  border-bottom: 1px solid var(--line);
+}
+.partner__name { font: 700 18px var(--font-display); }
+.partner__field { font: 500 11px var(--font-mono); letter-spacing: 0.08em; color: var(--muted); }

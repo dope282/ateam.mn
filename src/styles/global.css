@@ -1,0 +1,136 @@
+/* ───────── Design tokens — өнгө, фонт, зай ───────── */
+:root {
+  --red: #b60400;
+  --red-dark: #8e0300;
+  --red-bright: #ff5a4f;
+  --ink: #16110f;          /* main text / dark backgrounds */
+  --ink-2: #3d3532;        /* body text */
+  --muted: #6b625e;        /* small labels */
+  --paper: #f6f3ef;        /* page background */
+  --white: #ffffff;
+  --night: #140d0c;        /* Oyu Tolgoi section */
+  --photo-bg: #2a1d1a;     /* shown while photos load */
+  --line: rgba(22, 17, 15, 0.14);
+
+  --font-display: Unbounded, sans-serif;
+  --font-body: Manrope, system-ui, sans-serif;
+  --font-mono: 'JetBrains Mono', monospace;
+
+  --pad-x: clamp(20px, 4vw, 56px);       /* left/right page padding */
+  --section-y: clamp(80px, 10vw, 150px); /* top/bottom section padding */
+
+  --ease-out: cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+/* ───────── Base ───────── */
+*,
+*::before,
+*::after { box-sizing: border-box; }
+
+html { scroll-behavior: smooth; overflow-x: clip; }
+
+body {
+  margin: 0;
+  background: var(--paper);
+  color: var(--ink);
+  font-family: var(--font-body);
+  -webkit-font-smoothing: antialiased;
+}
+
+a { color: var(--red); text-decoration: none; }
+a:hover { color: var(--red-dark); }
+::selection { background: var(--red); color: #fff; }
+img { display: block; }
+h1, h2, h3, p, figure { margin: 0; }
+.pre-line { white-space: pre-line; }
+
+/* ───────── Shared building blocks ───────── */
+
+/* Small mono label: "01  Бидний тухай" */
+.label {
+  display: flex;
+  gap: 12px;
+  font: 500 12px/1.4 var(--font-mono);
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--red);
+}
+.label__text { color: var(--ink); }
+
+/* Big section heading */
+.h2 {
+  font: 700 clamp(32px, 4.4vw, 68px)/1.02 var(--font-display);
+  letter-spacing: -0.035em;
+}
+
+/* Headline line that slides up out of a mask (see RevealLine) */
+.line-mask { display: block; overflow: hidden; padding-bottom: 0.08em; }
+.line { display: block; }
+.accent { color: var(--red); }
+
+/* Section header row: heading on the left, label on the right */
+.section-head {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: flex-end;
+  gap: 24px;
+}
+
+/* Photo container with dark placeholder + oversized image for parallax */
+.photo {
+  position: relative;
+  overflow: hidden;
+  background: var(--photo-bg);
+}
+.photo img {
+  position: absolute;
+  left: 0;
+  width: 100%;
+  object-fit: cover;
+}
+
+/* Buttons */
+.btn {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  height: 56px;
+  padding: 0 28px;
+  font: 600 15px var(--font-body);
+  transition: background 0.25s, color 0.25s, translate 0.35s var(--ease-out);
+}
+.btn--dark { background: var(--ink); color: #fff; }
+.btn--dark:hover { background: var(--red); color: #fff; }
+.btn--outline { border: 1px solid var(--ink); color: var(--ink); }
+.btn--outline:hover { background: var(--ink); color: #fff; }
+
+/* Decorative skewed red bar */
+.slash {
+  position: absolute;
+  transform: skewX(-26deg);
+  pointer-events: none;
+}
+
+/* Scroll progress bar + custom cursor */
+.progress {
+  position: fixed;
+  inset: 0 0 auto 0;
+  height: 3px;
+  background: var(--red);
+  transform-origin: left;
+  transform: scaleX(0);
+  z-index: 120;
+}
+.cursor {
+  position: fixed;
+  left: 0;
+  top: 0;
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  background: #fff;
+  mix-blend-mode: difference;
+  pointer-events: none;
+  z-index: 9999;
+}

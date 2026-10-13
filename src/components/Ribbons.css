@@ -1,0 +1,37 @@
+.ribbons {
+  position: relative;
+  overflow: hidden;
+  padding: 56px 0 64px;
+}
+
+.ribbon { margin: 0 -4vw; overflow: hidden; }
+.ribbon--dark {
+  transform: rotate(1.6deg);
+  background: var(--ink);
+  color: var(--paper);
+  padding: 14px 0;
+}
+.ribbon--red {
+  transform: rotate(-2.4deg);
+  margin-top: -14px;
+  background: var(--red);
+  color: #fff;
+  padding: 22px 0;
+  box-shadow: 0 18px 40px rgba(182, 4, 0, 0.25);
+}
+
+.ribbon__track { display: flex; width: max-content; white-space: nowrap; }
+.ribbon__track--mono {
+  font: 500 13px/1 var(--font-mono);
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+}
+.ribbon__track--display {
+  font: 700 clamp(22px, 2.6vw, 38px)/1 var(--font-display);
+  letter-spacing: -0.02em;
+}
+
+.ribbon__group { display: flex; }
+.ribbon__group--mono { gap: 40px; padding-right: 40px; }
+.ribbon__group--display { gap: 48px; padding-right: 48px; }
+.ribbon__divider { opacity: 0.5; }
